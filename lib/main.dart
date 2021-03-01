@@ -14,8 +14,13 @@ class ExpensesApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Hello, Flutter!'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Personal Expenses'),
+      ),
+      body: Center(
+        child: Text('Hello, Flutter!'),
+      ),
     );
   }
 }
