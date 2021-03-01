@@ -34,6 +34,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Personal Expenses'),
+        backgroundColor: Colors.red,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
