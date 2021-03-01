@@ -18,8 +18,17 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Personal Expenses'),
       ),
-      body: Center(
-        child: Text('Hello, Flutter!'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Card(
+            child: Text('Graph'),
+          ),
+          Card(
+            child: Text('Transactions List'),
+          )
+        ],
       ),
     );
   }
