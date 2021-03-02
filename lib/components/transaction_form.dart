@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TransactionForm extends StatelessWidget {
+  final void Function(String, int) onSubmit;
+
+  TransactionForm({this.onSubmit});
+
   final titleController = TextEditingController();
   final valueController = TextEditingController();
 
@@ -33,8 +37,12 @@ class TransactionForm extends StatelessWidget {
                     'Add Transaction',
                   ),
                   onPressed: () {
-                    print(titleController.text);
-                    print(valueController.text);
+                    final title = titleController.text;
+                    final value = double.tryParse(valueController.text) ?? 0;
+
+                    final intValue = (value * 100).round();
+
+                    onSubmit(title, intValue);
                   },
                 ),
               ],
