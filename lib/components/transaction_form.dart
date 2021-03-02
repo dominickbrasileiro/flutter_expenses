@@ -51,7 +51,7 @@ class _TransactionFormState extends State<TransactionForm> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 FlatButton(
-                  textColor: Colors.red,
+                  textColor: Theme.of(context).primaryColor,
                   child: Text(
                     'Add Transaction',
                   ),
