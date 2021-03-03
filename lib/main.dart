@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_expenses/components/chart.dart';
 import 'package:flutter_expenses/components/transaction_form.dart';
 import 'package:flutter_expenses/components/transaction_list.dart';
 
@@ -44,19 +45,39 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    // Transaction(
-    //   id: 1,
-    //   title: 'Food',
-    //   value: 11076,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 2,
-    //   title: 'A New Smartphone',
-    //   value: 46000,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: 0,
+      title: 'Old Bill',
+      value: 40000,
+      date: DateTime.now().subtract(
+        Duration(days: 30),
+      ),
+    ),
+    Transaction(
+      id: 1,
+      title: 'Food',
+      value: 11076,
+      date: DateTime.now().subtract(
+        Duration(days: 3),
+      ),
+    ),
+    Transaction(
+      id: 2,
+      title: 'A New Smartphone',
+      value: 46000,
+      date: DateTime.now().subtract(
+        Duration(days: 4),
+      ),
+    ),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return _transactions.where((transaction) {
+      return transaction.date.isAfter(DateTime.now().subtract(
+        Duration(days: 7),
+      ));
+    }).toList();
+  }
 
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
@@ -98,9 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Card(
-              child: Text('Graph'),
-            ),
+            Chart(_recentTransactions),
             TransactionList(_transactions),
           ],
         ),
