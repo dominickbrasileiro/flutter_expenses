@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_expenses/components/chart_bar.dart';
 import 'package:flutter_expenses/models/transaction.dart';
 import 'package:intl/intl.dart';
 
@@ -36,16 +37,37 @@ class Chart extends StatelessWidget {
     });
   }
 
+  double get _weekTotal {
+    return groupedTransactions.fold(
+      0.0,
+      (acc, transaction) => acc + transaction['value'],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     this.groupedTransactions;
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
-      child: Row(
-        children: groupedTransactions.map((transaction) {
-          return Text('${transaction['day']}: ${transaction['value']}');
-        }).toList(),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactions.map((transaction) {
+            final String transactionDay = transaction['day'];
+            final int transactionValue = transaction['value'];
+
+            return Flexible(
+              fit: FlexFit.tight,
+              child: ChartBar(
+                label: transactionDay,
+                value: transactionValue / 100,
+                percentage: transactionValue / _weekTotal,
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
