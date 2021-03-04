@@ -34,7 +34,7 @@ class Chart extends StatelessWidget {
         'day': dayFirstLetter,
         'value': total,
       };
-    });
+    }).reversed.toList();
   }
 
   double get _weekTotal {
