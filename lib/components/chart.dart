@@ -27,9 +27,6 @@ class Chart extends StatelessWidget {
       final int total = filteredTransactions.fold(
           0, (acc, transaction) => acc + transaction.value);
 
-      print(dayFirstLetter);
-      print(total);
-
       return {
         'day': dayFirstLetter,
         'value': total,
