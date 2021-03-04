@@ -88,12 +88,12 @@ class _MyHomePageState extends State<MyHomePage> {
       context: context,
       builder: (_) {
         return TransactionForm(
-          onSubmit: (String title, int value) {
+          onSubmit: (String title, int value, DateTime date) {
             final newTransaction = Transaction(
               id: Random().nextInt(1000000),
               title: title,
               value: value,
-              date: DateTime.now(),
+              date: date,
             );
 
             setState(() {
