@@ -18,6 +18,10 @@ class ExpensesApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
+              button: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
               headline6: TextStyle(
                 fontFamily: 'OpenSans',
                 fontSize: 16,
