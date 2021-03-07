@@ -14,6 +14,7 @@ class TransactionList extends StatelessWidget {
         ? LayoutBuilder(
             builder: (ctx, constraints) => Column(
               children: [
+                SizedBox(height: 24),
                 Container(
                   height: 24,
                   child: Text(
