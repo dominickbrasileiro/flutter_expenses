@@ -36,7 +36,7 @@ class _TransactionFormState extends State<TransactionForm> {
     );
 
     setState(() {
-      _selectedDate = pickedDate;
+      _selectedDate = pickedDate != null ? pickedDate : DateTime.now();
     });
   }
 
