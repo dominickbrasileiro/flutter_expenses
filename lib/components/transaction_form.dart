@@ -56,13 +56,14 @@ class _TransactionFormState extends State<TransactionForm> {
             children: [
               TextField(
                 controller: _titleController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Title',
                 ),
               ),
               TextField(
                 controller: _valueController,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
                 onSubmitted: (_) => _submitForm(),
                 decoration: InputDecoration(
                   labelText: 'Value (\$)',
@@ -77,7 +78,7 @@ class _TransactionFormState extends State<TransactionForm> {
                     ),
                     FlatButton(
                       textColor: Theme.of(context).primaryColor,
-                      child: Text(
+                      child: const Text(
                         'Select Date',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -94,7 +95,7 @@ class _TransactionFormState extends State<TransactionForm> {
                   RaisedButton(
                     color: Theme.of(context).primaryColor,
                     textColor: Theme.of(context).textTheme.button.color,
-                    child: Text(
+                    child: const Text(
                       'Add Transaction',
                     ),
                     onPressed: _submitForm,

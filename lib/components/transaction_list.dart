@@ -6,7 +6,7 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final Function(int) onDelete;
 
-  TransactionList(this.transactions, {this.onDelete});
+  const TransactionList(this.transactions, {this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class TransactionList extends StatelessWidget {
               final transaction = transactions[index];
 
               return Card(
-                margin: EdgeInsets.symmetric(
+                margin: const EdgeInsets.symmetric(
                   vertical: 6,
                   horizontal: 8,
                 ),
@@ -69,7 +69,7 @@ class TransactionList extends StatelessWidget {
                   trailing: MediaQuery.of(context).size.width > 400
                       ? FlatButton.icon(
                           icon: Icon(Icons.delete),
-                          label: Text('Delete Transaction'),
+                          label: const Text('Delete Transaction'),
                           textColor: Theme.of(context).errorColor,
                           onPressed: () => onDelete(transaction.id),
                         )
